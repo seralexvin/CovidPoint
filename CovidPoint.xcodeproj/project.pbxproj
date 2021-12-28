@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4C520FD4615D29EE9135CEA /* Pods_CovidPoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9516C4D55FB3CB12CC7BE9C4 /* Pods_CovidPoint.framework */; };
 		C6AA2CFB277B841200995193 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA2CFA277B841200995193 /* AppDelegate.swift */; };
 		C6AA2CFD277B841200995193 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA2CFC277B841200995193 /* SceneDelegate.swift */; };
 		C6AA2CFF277B841200995193 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA2CFE277B841200995193 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9516C4D55FB3CB12CC7BE9C4 /* Pods_CovidPoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidPoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6AA2CF7277B841200995193 /* CovidPoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CovidPoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6AA2CFA277B841200995193 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6AA2CFC277B841200995193 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		C6AA2D03277B841300995193 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6AA2D06277B841300995193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6AA2D08277B841300995193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D968095AFA29B8814DC46E7D /* Pods-CovidPoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidPoint.release.xcconfig"; path = "Target Support Files/Pods-CovidPoint/Pods-CovidPoint.release.xcconfig"; sourceTree = "<group>"; };
+		DBE08614BE340DD5B0DEC63A /* Pods-CovidPoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidPoint.debug.xcconfig"; path = "Target Support Files/Pods-CovidPoint/Pods-CovidPoint.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4C520FD4615D29EE9135CEA /* Pods_CovidPoint.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E1212863DAE260A9EBC5952 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DBE08614BE340DD5B0DEC63A /* Pods-CovidPoint.debug.xcconfig */,
+				D968095AFA29B8814DC46E7D /* Pods-CovidPoint.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7C3AC545298E7D3460F00E55 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9516C4D55FB3CB12CC7BE9C4 /* Pods_CovidPoint.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C6AA2CEE277B841200995193 = {
 			isa = PBXGroup;
 			children = (
 				C6AA2CF9277B841200995193 /* CovidPoint */,
 				C6AA2CF8277B841200995193 /* Products */,
+				0E1212863DAE260A9EBC5952 /* Pods */,
+				7C3AC545298E7D3460F00E55 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C6AA2D0B277B841300995193 /* Build configuration list for PBXNativeTarget "CovidPoint" */;
 			buildPhases = (
+				2718B03F23E1364CB76E9EE0 /* [CP] Check Pods Manifest.lock */,
 				C6AA2CF3277B841200995193 /* Sources */,
 				C6AA2CF4277B841200995193 /* Frameworks */,
 				C6AA2CF5277B841200995193 /* Resources */,
+				4F38546108ECFDD16E68FCD9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2718B03F23E1364CB76E9EE0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CovidPoint-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4F38546108ECFDD16E68FCD9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CovidPoint/Pods-CovidPoint-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CovidPoint/Pods-CovidPoint-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CovidPoint/Pods-CovidPoint-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C6AA2CF3277B841200995193 /* Sources */ = {
@@ -284,6 +353,7 @@
 		};
 		C6AA2D0C277B841300995193 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBE08614BE340DD5B0DEC63A /* Pods-CovidPoint.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -312,6 +382,7 @@
 		};
 		C6AA2D0D277B841300995193 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D968095AFA29B8814DC46E7D /* Pods-CovidPoint.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
