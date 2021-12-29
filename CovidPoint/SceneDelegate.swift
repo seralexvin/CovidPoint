@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  CovidPoint
 //
-//  Created by Servin Asanov on 28.12.2021.
+//  Created by Vladislav on 28.12.2021.
 //
 
 import UIKit
