@@ -10,8 +10,7 @@ import SnapKit
 
 class CountryListViewController: UITableViewController {
         
-    let country = ["usa", "india", "brasil", "great britain"]
-    
+    var model = Country.getCity()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,17 +26,18 @@ class CountryListViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return country.count
+        return model.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellCovid", for: indexPath) as! CountryViewCell
-        
-        //cell.textLabel?.text = self.country[indexPath.row]
+    
+        cell.countryName.text = model[indexPath.row].countryName
+        cell.statusLabel.text = model[indexPath.row].statusLabel
+        cell.countryImage.image = UIImage(named: model[indexPath.row].countryImage)
         
         return cell
     }
-
     
 }
 

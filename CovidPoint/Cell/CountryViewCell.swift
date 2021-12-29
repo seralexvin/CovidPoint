@@ -12,14 +12,16 @@ class CountryViewCell: UITableViewCell {
     
 
     lazy var containterView: UIView  = {
-        let view = UIView(frame: .zero)
-        view.translatesAutoresizingMaskIntoConstraints = false
+//        let view = UIView(frame: .zero)
+//        view.translatesAutoresizingMaskIntoConstraints = false
+        let view = UIView()
         view.frame = CGRect(x: 0, y: 0, width: 323, height: 198)
         self.contentView.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
-        self.contentView.addSubview(view)
         view.backgroundColor = .white
         view.addShadow(color: .systemGray)
         view.cornerRadius(radius: 20)
+        self.contentView.addSubview(view)
+        
         view.snp.makeConstraints { make in
             make.width.equalTo(323)
             make.height.equalTo(198)
@@ -36,20 +38,18 @@ class CountryViewCell: UITableViewCell {
     }()
     
     lazy var countryName: UILabel = {
-//        let label = UILabel(frame: .zero)
-//        label.translatesAutoresizingMaskIntoConstraints = false
         let label = UILabel()
         label.text = "USA"
-        label.font = .init(name: "SFProDisplay-Bold", size: 24)
+        label.font = UIFont(name: "SFProDisplay-Bold", size: 24)
         label.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         self.containterView.addSubview(label)
 
         label.snp.makeConstraints { make in
-            make.width.equalTo(59)
-            make.height.equalTo(29)
+//            make.width.equalTo(59)
+//            make.height.equalTo(29)
             make.left.equalTo(self.containterView.snp.left).offset(20)
             make.top.equalTo(self.containterView.snp.top).offset(30)
-            make.right.equalTo(self.containterView.snp.right).offset(-244)
+//            make.right.equalTo(self.containterView.snp.right).offset(-244)
             make.bottom.equalTo(self.containterView.snp.bottom).offset(-139)
 
         }
@@ -59,7 +59,7 @@ class CountryViewCell: UITableViewCell {
     lazy var statusLabel: UILabel = {
         let label = UILabel()
         label.text = "Подтвержденно"
-        label.font = .init(name: "SFProDisplay-Medium", size: 14)
+        label.font = UIFont(name: "SFProDisplay-Medium", size: 14)
         label.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         label.numberOfLines = 0
         self.containterView.addSubview(label)
@@ -67,7 +67,7 @@ class CountryViewCell: UITableViewCell {
         label.snp.makeConstraints { make in
             make.top.equalTo(self.countryName.snp.bottom).offset(14)
             make.left.equalTo(self.containterView.snp.left).offset(20)
-            make.right.equalTo(self.containterView.snp.right).offset(-203)
+            //make.right.equalTo(self.containterView.snp.right).offset(-203)
             make.bottom.equalTo(self.containterView.snp.bottom).offset(-108)
         }
         return label
@@ -75,8 +75,8 @@ class CountryViewCell: UITableViewCell {
     
     lazy var infectedPeople: UILabel = {
         let label = UILabel()
-        label.text = "123123123"
-        label.font = .init(name: "SFProDisplay-Bold", size: 24)
+        label.text = "45 219 067"
+        label.font = UIFont(name: "SFProDisplay-Bold", size: 24)
         label.textColor = .black
         self.containterView.addSubview(label)
 
@@ -100,7 +100,9 @@ class CountryViewCell: UITableViewCell {
             make.width.equalTo(58)
             make.height.equalTo(58)
             make.top.equalTo(self.containterView.snp.topMargin).offset(15)
-            make.left.equalTo(self.containterView.snp.left).offset(271)
+//            make.left.equalTo(self.containterView.snp.left).offset(245)
+            make.right.equalTo(self.containterView.snp.right).offset(-20)
+            make.bottom.equalTo(self.containterView.snp.bottom).offset(-125)
         }
         
         return view
@@ -136,14 +138,13 @@ class CountryViewCell: UITableViewCell {
         secLine.position = line.center
         containterView.layer.addSublayer(secLine)
         
-        
         return line
     }()
     
     lazy var aboutLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor(red: 0.525, green: 0.525, blue: 0.525, alpha: 1)
-        label.font = .init(name: "SFProDisplay-Medium", size: 14)
+        label.font = UIFont(name: "SFProDisplay-Medium", size: 14)
         label.text = "Подробнее"
         self.containterView.addSubview(label)
 
@@ -156,6 +157,38 @@ class CountryViewCell: UITableViewCell {
         return label
     }()
     
+    lazy var newInfected: UILabel = {
+        let count = UILabel()
+        count.textColor = UIColor(red: 0.525, green: 0.525, blue: 0.525, alpha: 1)
+        count.font = UIFont(name: "SFProDisplay-Bold", size: 16)
+        count.text = "+86 759"
+        self.containterView.addSubview(count)
+        
+        count.snp.makeConstraints { make in
+            make.right.equalTo(self.containterView.snp.right).offset(-20)
+            make.left.equalTo(self.containterView.snp.left).offset(235)
+            make.top.equalTo(self.containterView.snp.top).offset(105)
+            make.bottom.equalTo(self.containterView.snp.bottom).offset(-74)
+        }
+        
+        return count
+    }()
+    
+    lazy var vectorImage: UIImageView = {
+        let vector = UIImageView()
+        vector.image = UIImage(named: "Vector")
+        self.containterView.addSubview(vector)
+        
+        vector.snp.makeConstraints { make in
+            make.bottom.equalTo(self.containterView.snp.bottom).offset(-22)
+            make.right.equalTo(self.containterView.snp.right).offset(-23)
+        }
+        
+        return vector
+    }()
+    
+    
+    
 
     override func didMoveToSuperview() {
         _ = containterView
@@ -163,6 +196,8 @@ class CountryViewCell: UITableViewCell {
         _ = countryImage
         _ = progressView
         _ = aboutLabel
+        _ = newInfected
+        _ = vectorImage
     }
 
     

@@ -92,8 +92,8 @@
 		C6AA2CF9277B841200995193 /* CovidPoint */ = {
 			isa = PBXGroup;
 			children = (
-				C6AA2D10277B8A7A00995193 /* Model */,
 				C6AA2D1E277B950300995193 /* Extensions */,
+				C6AA2D10277B8A7A00995193 /* Model */,
 				C6AA2D11277B90B100995193 /* TableVC */,
 				C6AA2D0F277B8A6D00995193 /* Cell */,
 				C6AA2CFA277B841200995193 /* AppDelegate.swift */,
