@@ -6,7 +6,6 @@ target 'CovidPoint' do
   use_frameworks!
 
   # Pods for CovidPoint
-
 	pod 'SnapKit'
 
 end

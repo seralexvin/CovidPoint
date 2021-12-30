@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  CovidPoint
 //
-//  Created by Vladislav on 28.12.2021.
+//  Created by Vladislav on 30.12.2021.
 //
 
 import UIKit

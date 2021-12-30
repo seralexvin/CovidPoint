@@ -7,141 +7,132 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB67B9F5277B9933001774AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB67B9F4277B9933001774AE /* AppDelegate.swift */; };
-		EB67B9F7277B9933001774AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB67B9F6277B9933001774AE /* SceneDelegate.swift */; };
-		EB67B9F9277B9933001774AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB67B9F8277B9933001774AE /* ViewController.swift */; };
-		EB67B9FC277B9933001774AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB67B9FA277B9933001774AE /* Main.storyboard */; };
-		EB67B9FE277B9934001774AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB67B9FD277B9934001774AE /* Assets.xcassets */; };
-		EB67BA01277B9934001774AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB67B9FF277B9934001774AE /* LaunchScreen.storyboard */; };
-		EB67BA08277C7574001774AE /* Pods_CovidPoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E098E2CA68F8C4FDB0BD19 /* Pods_CovidPoint.framework */; };
-		EB67BA10277CB33E001774AE /* CovidPointData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB67BA0F277CB33E001774AE /* CovidPointData.swift */; };
-		EB67BA12277CB433001774AE /* CovidPointViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB67BA11277CB433001774AE /* CovidPointViewModel.swift */; };
+		EB078015277DD22200D2B01E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB078014277DD22200D2B01E /* AppDelegate.swift */; };
+		EB078017277DD22200D2B01E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB078016277DD22200D2B01E /* SceneDelegate.swift */; };
+		EB078019277DD22200D2B01E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB078018277DD22200D2B01E /* ViewController.swift */; };
+		EB07801C277DD22200D2B01E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB07801A277DD22200D2B01E /* Main.storyboard */; };
+		EB07801E277DD22300D2B01E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB07801D277DD22300D2B01E /* Assets.xcassets */; };
+		EB078021277DD22300D2B01E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB07801F277DD22300D2B01E /* LaunchScreen.storyboard */; };
+		EB07802C277DD2A800D2B01E /* CovidPointData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB07802B277DD2A800D2B01E /* CovidPointData.swift */; };
+		EB07802E277DD2BE00D2B01E /* CovidPointViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB07802D277DD2BE00D2B01E /* CovidPointViewModel.swift */; };
+		EB07802F277DD40000D2B01E /* Pods_CovidPoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A029DE8DC9478D112F6C47D9 /* Pods_CovidPoint.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8AA8581E274E10A742CE05AC /* Pods-CovidPoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidPoint.debug.xcconfig"; path = "Target Support Files/Pods-CovidPoint/Pods-CovidPoint.debug.xcconfig"; sourceTree = "<group>"; };
-		B4F1F9DBA0D0E810C8F68C4F /* Pods-CovidPoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidPoint.release.xcconfig"; path = "Target Support Files/Pods-CovidPoint/Pods-CovidPoint.release.xcconfig"; sourceTree = "<group>"; };
-		C6E098E2CA68F8C4FDB0BD19 /* Pods_CovidPoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidPoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB67B9F1277B9933001774AE /* CovidPoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CovidPoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB67B9F4277B9933001774AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EB67B9F6277B9933001774AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EB67B9F8277B9933001774AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EB67B9FB277B9933001774AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EB67B9FD277B9934001774AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EB67BA00277B9934001774AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		EB67BA02277B9934001774AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB67BA0F277CB33E001774AE /* CovidPointData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidPointData.swift; sourceTree = "<group>"; };
-		EB67BA11277CB433001774AE /* CovidPointViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidPointViewModel.swift; sourceTree = "<group>"; };
+		98F303943AD2D0C506537C1B /* Pods-CovidPoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidPoint.release.xcconfig"; path = "Target Support Files/Pods-CovidPoint/Pods-CovidPoint.release.xcconfig"; sourceTree = "<group>"; };
+		A029DE8DC9478D112F6C47D9 /* Pods_CovidPoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidPoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0B2E7169B608E211B8FDB08 /* Pods-CovidPoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidPoint.debug.xcconfig"; path = "Target Support Files/Pods-CovidPoint/Pods-CovidPoint.debug.xcconfig"; sourceTree = "<group>"; };
+		EB078011277DD22200D2B01E /* CovidPoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CovidPoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB078014277DD22200D2B01E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EB078016277DD22200D2B01E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		EB078018277DD22200D2B01E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EB07801B277DD22200D2B01E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EB07801D277DD22300D2B01E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EB078020277DD22300D2B01E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EB078022277DD22300D2B01E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB07802B277DD2A800D2B01E /* CovidPointData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidPointData.swift; sourceTree = "<group>"; };
+		EB07802D277DD2BE00D2B01E /* CovidPointViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidPointViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		EB67B9EE277B9933001774AE /* Frameworks */ = {
+		EB07800E277DD22200D2B01E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB67BA08277C7574001774AE /* Pods_CovidPoint.framework in Frameworks */,
+				EB07802F277DD40000D2B01E /* Pods_CovidPoint.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2A6A2FCC7F7F44675B28943C /* Pods */ = {
+		33BD80013127F04F5630F418 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8AA8581E274E10A742CE05AC /* Pods-CovidPoint.debug.xcconfig */,
-				B4F1F9DBA0D0E810C8F68C4F /* Pods-CovidPoint.release.xcconfig */,
+				C0B2E7169B608E211B8FDB08 /* Pods-CovidPoint.debug.xcconfig */,
+				98F303943AD2D0C506537C1B /* Pods-CovidPoint.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		2DE9DE7564B1D01875AA37DB /* Frameworks */ = {
+		AA63317034D28695DC91372F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C6E098E2CA68F8C4FDB0BD19 /* Pods_CovidPoint.framework */,
+				A029DE8DC9478D112F6C47D9 /* Pods_CovidPoint.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EB67B9E8277B9933001774AE = {
+		EB078008277DD22200D2B01E = {
 			isa = PBXGroup;
 			children = (
-				EB67B9F3277B9933001774AE /* CovidPoint */,
-				EB67B9F2277B9933001774AE /* Products */,
-				2A6A2FCC7F7F44675B28943C /* Pods */,
-				2DE9DE7564B1D01875AA37DB /* Frameworks */,
+				EB078013277DD22200D2B01E /* CovidPoint */,
+				EB078012277DD22200D2B01E /* Products */,
+				33BD80013127F04F5630F418 /* Pods */,
+				AA63317034D28695DC91372F /* Frameworks */,
 			);
 			sourceTree = "<group>";
-			usesTabs = 0;
 		};
-		EB67B9F2277B9933001774AE /* Products */ = {
+		EB078012277DD22200D2B01E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EB67B9F1277B9933001774AE /* CovidPoint.app */,
+				EB078011277DD22200D2B01E /* CovidPoint.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EB67B9F3277B9933001774AE /* CovidPoint */ = {
+		EB078013277DD22200D2B01E /* CovidPoint */ = {
 			isa = PBXGroup;
 			children = (
-				EB67BA0E277CB2AC001774AE /* MapScreen */,
-				EB67B9F4277B9933001774AE /* AppDelegate.swift */,
-				EB67B9F6277B9933001774AE /* SceneDelegate.swift */,
-				EB67B9FA277B9933001774AE /* Main.storyboard */,
-				EB67B9FD277B9934001774AE /* Assets.xcassets */,
-				EB67B9FF277B9934001774AE /* LaunchScreen.storyboard */,
-				EB67BA02277B9934001774AE /* Info.plist */,
+				EB07802A277DD27400D2B01E /* ViewController */,
+				EB078029277DD25D00D2B01E /* ViewModel */,
+				EB078028277DD24300D2B01E /* CovidPointData */,
+				EB078014277DD22200D2B01E /* AppDelegate.swift */,
+				EB078016277DD22200D2B01E /* SceneDelegate.swift */,
+				EB07801A277DD22200D2B01E /* Main.storyboard */,
+				EB07801D277DD22300D2B01E /* Assets.xcassets */,
+				EB07801F277DD22300D2B01E /* LaunchScreen.storyboard */,
+				EB078022277DD22300D2B01E /* Info.plist */,
 			);
 			path = CovidPoint;
 			sourceTree = "<group>";
 		};
-		EB67BA0B277CB216001774AE /* Models */ = {
+		EB078028277DD24300D2B01E /* CovidPointData */ = {
 			isa = PBXGroup;
 			children = (
-				EB67BA0F277CB33E001774AE /* CovidPointData.swift */,
+				EB07802B277DD2A800D2B01E /* CovidPointData.swift */,
 			);
-			path = Models;
+			path = CovidPointData;
 			sourceTree = "<group>";
 		};
-		EB67BA0C277CB22C001774AE /* ViewModels */ = {
+		EB078029277DD25D00D2B01E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				EB67BA11277CB433001774AE /* CovidPointViewModel.swift */,
+				EB07802D277DD2BE00D2B01E /* CovidPointViewModel.swift */,
 			);
-			path = ViewModels;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		EB67BA0D277CB23E001774AE /* ViewController */ = {
+		EB07802A277DD27400D2B01E /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				EB67B9F8277B9933001774AE /* ViewController.swift */,
+				EB078018277DD22200D2B01E /* ViewController.swift */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		EB67BA0E277CB2AC001774AE /* MapScreen */ = {
-			isa = PBXGroup;
-			children = (
-				EB67BA0D277CB23E001774AE /* ViewController */,
-				EB67BA0C277CB22C001774AE /* ViewModels */,
-				EB67BA0B277CB216001774AE /* Models */,
-			);
-			path = MapScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EB67B9F0277B9933001774AE /* CovidPoint */ = {
+		EB078010277DD22200D2B01E /* CovidPoint */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EB67BA05277B9934001774AE /* Build configuration list for PBXNativeTarget "CovidPoint" */;
+			buildConfigurationList = EB078025277DD22300D2B01E /* Build configuration list for PBXNativeTarget "CovidPoint" */;
 			buildPhases = (
-				90F5177930DBE299BABD434E /* [CP] Check Pods Manifest.lock */,
-				EB67B9ED277B9933001774AE /* Sources */,
-				EB67B9EE277B9933001774AE /* Frameworks */,
-				EB67B9EF277B9933001774AE /* Resources */,
-				761BD6BB8D7CF8847EDB668D /* [CP] Embed Pods Frameworks */,
+				1C6A31211504E5F0553CF9ED /* [CP] Check Pods Manifest.lock */,
+				EB07800D277DD22200D2B01E /* Sources */,
+				EB07800E277DD22200D2B01E /* Frameworks */,
+				EB07800F277DD22200D2B01E /* Resources */,
+				9BE0D8878CFDDFF9F5FF9F8E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,25 +140,25 @@
 			);
 			name = CovidPoint;
 			productName = CovidPoint;
-			productReference = EB67B9F1277B9933001774AE /* CovidPoint.app */;
+			productReference = EB078011277DD22200D2B01E /* CovidPoint.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		EB67B9E9277B9933001774AE /* Project object */ = {
+		EB078009277DD22200D2B01E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
-					EB67B9F0277B9933001774AE = {
+					EB078010277DD22200D2B01E = {
 						CreatedOnToolsVersion = 13.1;
 					};
 				};
 			};
-			buildConfigurationList = EB67B9EC277B9933001774AE /* Build configuration list for PBXProject "CovidPoint" */;
+			buildConfigurationList = EB07800C277DD22200D2B01E /* Build configuration list for PBXProject "CovidPoint" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -175,48 +166,31 @@
 				en,
 				Base,
 			);
-			mainGroup = EB67B9E8277B9933001774AE;
-			productRefGroup = EB67B9F2277B9933001774AE /* Products */;
+			mainGroup = EB078008277DD22200D2B01E;
+			productRefGroup = EB078012277DD22200D2B01E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EB67B9F0277B9933001774AE /* CovidPoint */,
+				EB078010277DD22200D2B01E /* CovidPoint */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		EB67B9EF277B9933001774AE /* Resources */ = {
+		EB07800F277DD22200D2B01E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB67BA01277B9934001774AE /* LaunchScreen.storyboard in Resources */,
-				EB67B9FE277B9934001774AE /* Assets.xcassets in Resources */,
-				EB67B9FC277B9933001774AE /* Main.storyboard in Resources */,
+				EB078021277DD22300D2B01E /* LaunchScreen.storyboard in Resources */,
+				EB07801E277DD22300D2B01E /* Assets.xcassets in Resources */,
+				EB07801C277DD22200D2B01E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		761BD6BB8D7CF8847EDB668D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CovidPoint/Pods-CovidPoint-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CovidPoint/Pods-CovidPoint-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CovidPoint/Pods-CovidPoint-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		90F5177930DBE299BABD434E /* [CP] Check Pods Manifest.lock */ = {
+		1C6A31211504E5F0553CF9ED /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -238,36 +212,53 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9BE0D8878CFDDFF9F5FF9F8E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CovidPoint/Pods-CovidPoint-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CovidPoint/Pods-CovidPoint-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CovidPoint/Pods-CovidPoint-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		EB67B9ED277B9933001774AE /* Sources */ = {
+		EB07800D277DD22200D2B01E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB67BA10277CB33E001774AE /* CovidPointData.swift in Sources */,
-				EB67B9F9277B9933001774AE /* ViewController.swift in Sources */,
-				EB67B9F5277B9933001774AE /* AppDelegate.swift in Sources */,
-				EB67B9F7277B9933001774AE /* SceneDelegate.swift in Sources */,
-				EB67BA12277CB433001774AE /* CovidPointViewModel.swift in Sources */,
+				EB07802C277DD2A800D2B01E /* CovidPointData.swift in Sources */,
+				EB078019277DD22200D2B01E /* ViewController.swift in Sources */,
+				EB07802E277DD2BE00D2B01E /* CovidPointViewModel.swift in Sources */,
+				EB078015277DD22200D2B01E /* AppDelegate.swift in Sources */,
+				EB078017277DD22200D2B01E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		EB67B9FA277B9933001774AE /* Main.storyboard */ = {
+		EB07801A277DD22200D2B01E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EB67B9FB277B9933001774AE /* Base */,
+				EB07801B277DD22200D2B01E /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		EB67B9FF277B9934001774AE /* LaunchScreen.storyboard */ = {
+		EB07801F277DD22300D2B01E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EB67BA00277B9934001774AE /* Base */,
+				EB078020277DD22300D2B01E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -275,7 +266,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		EB67BA03277B9934001774AE /* Debug */ = {
+		EB078023277DD22300D2B01E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -336,7 +327,7 @@
 			};
 			name = Debug;
 		};
-		EB67BA04277B9934001774AE /* Release */ = {
+		EB078024277DD22300D2B01E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -391,11 +382,10 @@
 			};
 			name = Release;
 		};
-		EB67BA06277B9934001774AE /* Debug */ = {
+		EB078026277DD22300D2B01E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8AA8581E274E10A742CE05AC /* Pods-CovidPoint.debug.xcconfig */;
+			baseConfigurationReference = C0B2E7169B608E211B8FDB08 /* Pods-CovidPoint.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -419,15 +409,13 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
-		EB67BA07277B9934001774AE /* Release */ = {
+		EB078027277DD22300D2B01E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B4F1F9DBA0D0E810C8F68C4F /* Pods-CovidPoint.release.xcconfig */;
+			baseConfigurationReference = 98F303943AD2D0C506537C1B /* Pods-CovidPoint.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -450,32 +438,31 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EB67B9EC277B9933001774AE /* Build configuration list for PBXProject "CovidPoint" */ = {
+		EB07800C277DD22200D2B01E /* Build configuration list for PBXProject "CovidPoint" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EB67BA03277B9934001774AE /* Debug */,
-				EB67BA04277B9934001774AE /* Release */,
+				EB078023277DD22300D2B01E /* Debug */,
+				EB078024277DD22300D2B01E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EB67BA05277B9934001774AE /* Build configuration list for PBXNativeTarget "CovidPoint" */ = {
+		EB078025277DD22300D2B01E /* Build configuration list for PBXNativeTarget "CovidPoint" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EB67BA06277B9934001774AE /* Debug */,
-				EB67BA07277B9934001774AE /* Release */,
+				EB078026277DD22300D2B01E /* Debug */,
+				EB078027277DD22300D2B01E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = EB67B9E9277B9933001774AE /* Project object */;
+	rootObject = EB078009277DD22200D2B01E /* Project object */;
 }
