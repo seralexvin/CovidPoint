@@ -1,2 +1,0 @@
-# CovidPoint
-Showing Covid Point 
