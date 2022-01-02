@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 
 class CountryViewCell: UITableViewCell {
-    
 
     lazy var containterView: UIView  = {
 //        let view = UIView(frame: .zero)
@@ -26,7 +25,7 @@ class CountryViewCell: UITableViewCell {
             make.width.equalTo(323)
             make.height.equalTo(198)
             make.left.equalTo(self.contentView.snp.left).offset(26)
-//            make.top.equalTo(self.contentView.snp.topMargin).offset(144)
+//            make.top.equalTo(self.contentView.snp.top).offset(25)
             
             make.top.equalTo(self.contentView.snp.topMargin).offset(0)
             make.bottom.equalTo(self.contentView.snp.bottomMargin).offset(0)
@@ -41,12 +40,11 @@ class CountryViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "USA"
         label.font = UIFont(name: "SFProDisplay-Bold", size: 24)
+        label.font = .systemFont(ofSize: 24)
         label.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         self.containterView.addSubview(label)
 
         label.snp.makeConstraints { make in
-//            make.width.equalTo(59)
-//            make.height.equalTo(29)
             make.left.equalTo(self.containterView.snp.left).offset(20)
             make.top.equalTo(self.containterView.snp.top).offset(30)
 //            make.right.equalTo(self.containterView.snp.right).offset(-244)
@@ -59,7 +57,8 @@ class CountryViewCell: UITableViewCell {
     lazy var statusLabel: UILabel = {
         let label = UILabel()
         label.text = "Подтвержденно"
-        label.font = UIFont(name: "SFProDisplay-Medium", size: 14)
+        label.font = .init(name: "SFProDisplay-Medium", size: 14)
+        label.font = .systemFont(ofSize: 14)
         label.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         label.numberOfLines = 0
         self.containterView.addSubview(label)
@@ -75,8 +74,9 @@ class CountryViewCell: UITableViewCell {
     
     lazy var infectedPeople: UILabel = {
         let label = UILabel()
-        label.text = "45 219 067"
+        label.text = "45"
         label.font = UIFont(name: "SFProDisplay-Bold", size: 24)
+        label.font = .systemFont(ofSize: 24)
         label.textColor = .black
         self.containterView.addSubview(label)
 
@@ -90,10 +90,8 @@ class CountryViewCell: UITableViewCell {
     }()
     
     lazy var countryImage: UIImageView = {
-        let view = UIImageView(frame: .zero)
-        view.translatesAutoresizingMaskIntoConstraints = false
+        let view = UIImageView()
         view.image = UIImage(named: "usa")
-
         self.containterView.addSubview(view)
         
         view.snp.makeConstraints { make in
@@ -126,7 +124,7 @@ class CountryViewCell: UITableViewCell {
         }
         
         let secLine = CAGradientLayer()
-        secLine.colors = [UIColor(red: 0.525, green: 0.525, blue: 0.525, alpha: 1).cgColor,
+        secLine.colors = [UIColor(red: 1.725, green: 0.525, blue: 0.525, alpha: 1).cgColor,
                        UIColor(red: 0.28, green: 0.293, blue: 0.3, alpha: 1).cgColor]
         secLine.locations = [0, 1]
         secLine.startPoint = CGPoint(x: 0.25, y: 0.5)
@@ -150,8 +148,9 @@ class CountryViewCell: UITableViewCell {
 
         label.snp.makeConstraints { make in
             make.top.equalTo(self.progressView.snp.bottom).offset(23)
-            make.left.equalTo(self.containterView.snp.left).offset(204)
+//            make.left.equalTo(self.containterView.snp.left).offset(204)
             make.bottom.equalTo(self.containterView.snp.bottom).offset(-19)
+            make.right.equalTo(self.containterView.snp.right).offset(-44)
         }
         
         return label
@@ -181,13 +180,12 @@ class CountryViewCell: UITableViewCell {
         
         vector.snp.makeConstraints { make in
             make.bottom.equalTo(self.containterView.snp.bottom).offset(-22)
-            make.right.equalTo(self.containterView.snp.right).offset(-23)
+            make.right.equalTo(self.containterView.snp.right).offset(-20)
+//            make.left.equalTo(self.statusLabel.snp.right).offset(10)
         }
         
         return vector
     }()
-    
-    
     
 
     override func didMoveToSuperview() {
@@ -200,13 +198,9 @@ class CountryViewCell: UITableViewCell {
         _ = vectorImage
     }
 
-    
     override func awakeFromNib() {
         super.awakeFromNib()
 
     }
-    
-
-
 
 }
