@@ -11,14 +11,10 @@ import SnapKit
 class CountryListViewController: UITableViewController {
         
     var model = Country.getCity()
-    var infectedModel = InfectedCovid.getInfected()
-    var countModel = CountPeople.getCount()
     
-    
-
     lazy var myView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray
         let width = UIScreen.main.bounds.width
         
         view.snp.makeConstraints { make in
@@ -27,6 +23,22 @@ class CountryListViewController: UITableViewController {
         }
         
         return view
+    }()
+    
+    lazy var myButton: UIButton = {
+        let myButton = UIButton()
+        myButton.backgroundColor = .red
+        self.myView.addSubview(myButton)
+        let myWidth = UIScreen.main.bounds.width - 300
+        
+        myButton.snp.makeConstraints { make in
+            make.left.equalTo(self.myView.snp.left).offset(50)
+            make.right.equalTo(self.myView.snp.right).offset(-50)
+            make.height.equalTo(20)
+            make.width.equalTo(myWidth)
+        }
+        
+        return myButton
     }()
 
 
@@ -55,8 +67,11 @@ class CountryListViewController: UITableViewController {
         cell.statusLabel.text = model[indexPath.row].statusLabel
         cell.countryImage.image = UIImage(named: model[indexPath.row].countryImage)
         
-        cell.infectedPeople.text = infectedModel[indexPath.row].infected
-        cell.newInfected.text = countModel[indexPath.row].countPeople
+        cell.infectedPeople.text = model[indexPath.row].infected
+        cell.newInfected.text = model[indexPath.row].countPeople
+        
+//        cell.infectedPeople.text = infectedModel[indexPath.row].infected
+//        cell.newInfected.text = countModel[indexPath.row].countPeople
         
         return cell
     }
