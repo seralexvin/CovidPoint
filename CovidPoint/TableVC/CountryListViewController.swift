@@ -12,49 +12,18 @@ class CountryListViewController: UITableViewController {
         
     var model = Country.getCity()
     var progressModel = ProgressCountry.myProgress()
+    var myView = UISegmentedControl()
     
-//    lazy var myView: UIView = {
-//        let view = UIView()
-//        view.backgroundColor = .systemGray
-//        let width = UIScreen.main.bounds.width
-//
-//        view.snp.makeConstraints { make in
-//            make.height.equalTo(30)
-//            make.width.equalTo(width)
-//        }
-//
-//        return view
-//    }()
     
-//    lazy var myButton: UIButton = {
-//        let myButton = UIButton()
-//        myButton.backgroundColor = .red
-//        self.myView.addSubview(myButton)
-//        let myWidth = UIScreen.main.bounds.width - 300
-//
-//        myButton.snp.makeConstraints { make in
-//            make.left.equalTo(self.myView.snp.left).offset(50)
-//            make.right.equalTo(self.myView.snp.right).offset(-50)
-//            make.height.equalTo(20)
-//            make.width.equalTo(myWidth)
-//        }
-//
-//        return myButton
-//    }()
-    
-    lazy var control: UISegmentedControl = {
-        let myControl = UISegmentedControl()
-        myControl.setTitle("1", forSegmentAt: 0)
-        myControl.setTitle("2", forSegmentAt: 1)
-        myControl.backgroundColor = .green
-        tableView.addSubview(myControl)
+    lazy var frame: UISegmentedControl = {
+        let frame = UISegmentedControl(items: ["1", "2"])
+        frame.setImage(UIImage(named: "1"), forSegmentAt: 0)
+        frame.setImage(UIImage(named: "2"), forSegmentAt: 1)
+        frame.selectedSegmentIndex = 0
+        frame.tintColor = .gray
+        frame.layer.borderColor = UIColor.red.cgColor
         
-        myControl.snp.makeConstraints { make in
-            make.left.equalTo(self.tableView.snp.left).offset(50)
-            make.right.equalTo(self.tableView.snp.right).offset(-50)
-        }
-        
-        return myControl
+        return frame
     }()
 
 
@@ -67,7 +36,8 @@ class CountryListViewController: UITableViewController {
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = UITableView.automaticDimension
         
-//        self.tableView.tableHeaderView = control
+        self.tableView.tableHeaderView = frame
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
