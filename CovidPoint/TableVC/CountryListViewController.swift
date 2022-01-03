@@ -11,39 +11,53 @@ import SnapKit
 class CountryListViewController: UITableViewController {
         
     var model = Country.getCity()
+    var progressModel = ProgressCountry.myProgress()
     
-    lazy var myView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .systemGray
-        let width = UIScreen.main.bounds.width
+//    lazy var myView: UIView = {
+//        let view = UIView()
+//        view.backgroundColor = .systemGray
+//        let width = UIScreen.main.bounds.width
+//
+//        view.snp.makeConstraints { make in
+//            make.height.equalTo(30)
+//            make.width.equalTo(width)
+//        }
+//
+//        return view
+//    }()
+    
+//    lazy var myButton: UIButton = {
+//        let myButton = UIButton()
+//        myButton.backgroundColor = .red
+//        self.myView.addSubview(myButton)
+//        let myWidth = UIScreen.main.bounds.width - 300
+//
+//        myButton.snp.makeConstraints { make in
+//            make.left.equalTo(self.myView.snp.left).offset(50)
+//            make.right.equalTo(self.myView.snp.right).offset(-50)
+//            make.height.equalTo(20)
+//            make.width.equalTo(myWidth)
+//        }
+//
+//        return myButton
+//    }()
+    
+    lazy var control: UISegmentedControl = {
+        let myControl = UISegmentedControl()
+        myControl.setTitle("1", forSegmentAt: 0)
+        myControl.setTitle("2", forSegmentAt: 1)
+        myControl.backgroundColor = .green
+        tableView.addSubview(myControl)
         
-        view.snp.makeConstraints { make in
-            make.height.equalTo(30)
-            make.width.equalTo(width)
+        myControl.snp.makeConstraints { make in
+            make.left.equalTo(self.tableView.snp.left).offset(50)
+            make.right.equalTo(self.tableView.snp.right).offset(-50)
         }
         
-        return view
-    }()
-    
-    lazy var myButton: UIButton = {
-        let myButton = UIButton()
-        myButton.backgroundColor = .red
-        self.myView.addSubview(myButton)
-        let myWidth = UIScreen.main.bounds.width - 300
-        
-        myButton.snp.makeConstraints { make in
-            make.left.equalTo(self.myView.snp.left).offset(50)
-            make.right.equalTo(self.myView.snp.right).offset(-50)
-            make.height.equalTo(20)
-            make.width.equalTo(myWidth)
-        }
-        
-        return myButton
+        return myControl
     }()
 
 
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
@@ -53,7 +67,7 @@ class CountryListViewController: UITableViewController {
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.estimatedRowHeight = UITableView.automaticDimension
         
-        self.tableView.tableHeaderView = myView
+//        self.tableView.tableHeaderView = control
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,19 +76,16 @@ class CountryListViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellCovid", for: indexPath) as! CountryViewCell
-    
+
         cell.countryName.text = model[indexPath.row].countryName
         cell.statusLabel.text = model[indexPath.row].statusLabel
         cell.countryImage.image = UIImage(named: model[indexPath.row].countryImage)
-        
         cell.infectedPeople.text = model[indexPath.row].infected
         cell.newInfected.text = model[indexPath.row].countPeople
         
-//        cell.infectedPeople.text = infectedModel[indexPath.row].infected
-//        cell.newInfected.text = countModel[indexPath.row].countPeople
-        
+        cell.progressView.setProgress(Float(progressModel[indexPath.row].infectedProgress), animated: false)
+            
         return cell
     }
-
 }
 

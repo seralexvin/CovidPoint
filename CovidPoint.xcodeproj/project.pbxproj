@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A4C520FD4615D29EE9135CEA /* Pods_CovidPoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9516C4D55FB3CB12CC7BE9C4 /* Pods_CovidPoint.framework */; };
+		C685659E278359D100C7AF4D /* ProgressCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C685659D278359D100C7AF4D /* ProgressCountry.swift */; };
 		C6AA2CFB277B841200995193 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA2CFA277B841200995193 /* AppDelegate.swift */; };
 		C6AA2CFD277B841200995193 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA2CFC277B841200995193 /* SceneDelegate.swift */; };
 		C6AA2CFF277B841200995193 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AA2CFE277B841200995193 /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		9516C4D55FB3CB12CC7BE9C4 /* Pods_CovidPoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidPoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C685659D278359D100C7AF4D /* ProgressCountry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCountry.swift; sourceTree = "<group>"; };
 		C6AA2CF7277B841200995193 /* CovidPoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CovidPoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6AA2CFA277B841200995193 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6AA2CFC277B841200995193 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				C6AA2D1C277B910C00995193 /* CovidModel.swift */,
+				C685659D278359D100C7AF4D /* ProgressCountry.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6AA2D16277B90DD00995193 /* CountryViewCell.swift in Sources */,
+				C685659E278359D100C7AF4D /* ProgressCountry.swift in Sources */,
 				C6AA2D1D277B910C00995193 /* CovidModel.swift in Sources */,
 				C6AA2D20277B950E00995193 /* UIView.swift in Sources */,
 				C6AA2CFF277B841200995193 /* ViewController.swift in Sources */,
