@@ -11,9 +11,11 @@ import MapKit
 
 class ViewController: UIViewController {
     
-    //@IBOutlet private var mapView: MKMapView!
     let mapView = MKMapView()
     let dataCity = CovidPointViewModel().dataCovidPointCity
+    
+    let segmentControlView = UIView()
+    let conteiner = UIView()
     
     let startPoint = CovidPointData(title: "Simferopol",
                                     latitude: 44.948237,
@@ -26,46 +28,99 @@ class ViewController: UIViewController {
     
     let geolocationCircle = UIView()
     
+    let table = UIView()
+    
+    let segmentControl = UISegmentedControl(items: ["Map", "Table"])
+    
     var scale : CLLocationDistance = 100000
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
-        CreateMap()
-        ZoomButton()
-        geolocationButton()
+        self.view.addSubview(segmentControlView)
+        self.segmentControlView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().offset(0)
+        }
+
+        self.segmentControlView.addSubview(conteiner)
+        self.conteiner.snp.makeConstraints { make in
+            make.edges.equalToSuperview().offset(0)
+        }
+
+
+
+
+//
+        createMap()
+//        mapView.isHidden = true
+        createSegmentControl()
+
+        self.conteiner.addSubview(table)
+        self.table.backgroundColor = .white
+        self.table.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(-50)
+            make.bottom.equalToSuperview().offset(55)
+            make.left.right.equalToSuperview().offset(0)
+        }
+        self.table.isHidden = true
+
         
-        //        let centerPointCircle = CLLocationCoordinate2DMake(self.startPoint.latitude, self.startPoint.longitude)
-        //        showCircle(coordinate: centerPointCircle, radius: scale)
-        //
+
         let initialLocation = CLLocation(latitude: self.startPoint.latitude,
                                          longitude: self.startPoint.longitude)
         mapView.centerToLocation(initialLocation, regionRadius: scale)
-        
+
         for i in dataCity {
             mapView.addAnnotation(i)
         }
         
-        //        mapView.addAnnotation(<#T##annotation: MKAnnotation##MKAnnotation#>)
-        //        mapView.addAnnotation(
     }
     
     
     
-    func CreateMap(){
-        self.view.addSubview(mapView)
+    func createMap(){
+        self.conteiner.addSubview(mapView)
         mapView.delegate = self
         self.mapView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(-50)
             make.bottom.equalToSuperview().offset(55)
             make.left.right.equalToSuperview().offset(0)
         }
+        zoomButton()
+        geolocationButton()
     }
     
     
+    func createSegmentControl(){
+        self.segmentControlView.addSubview(segmentControl)
+        self.segmentControl.backgroundColor = .white
+        self.segmentControl.snp.makeConstraints { make in
+            make.height.equalTo(38)
+            make.width.equalTo(200)
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(65)
+        }
+        self.segmentControl.selectedSegmentIndex = 0
+        self.segmentControl.addTarget(self, action: #selector(segmentControlAction(_:)), for: .valueChanged)
+        self.segmentControl.addTarget(self, action: #selector(segmentControlAction(_:)), for: .touchUpInside)
+
+
+    }
     
-    func ZoomButton(){
+    @objc func segmentControlAction(_ sender: UISegmentedControl!){
+        switch sender.selectedSegmentIndex{
+            case 0:
+                mapView.isHidden = false
+                table.isHidden = true
+            case 1:
+                mapView.isHidden = true
+                table.isHidden = false
+            default:
+                break
+        }
+    }
+    
+    func zoomButton(){
         self.mapView.addSubview(zoomView)
         self.zoomView.backgroundColor = .white
         self.zoomView.layer.cornerRadius = 6
@@ -201,7 +256,7 @@ class ViewController: UIViewController {
             print(self.scale)
             
         default:
-            print("")
+            break
         }
     }
     
