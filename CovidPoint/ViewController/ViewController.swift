@@ -12,7 +12,12 @@ import MapKit
 class ViewController: UIViewController {
     
     let mapView = MKMapView()
-    let dataCity = CovidPointViewModel().dataCovidPointCity
+    
+    let city = CovidPointViewModel().dataCovidPointCity
+    let country = CovidPointViewModel().dataCovidPointState
+    
+    var dataCity : [CovidPointData]!
+    var dataCountry : [CovidPointData]!
     
     let segmentControlView = UIView()
     let conteiner = UIView()
@@ -32,9 +37,12 @@ class ViewController: UIViewController {
     
     let segmentControl = UISegmentedControl(items: ["Map", "Table"])
     
-    var scale : CLLocationDistance = 100000
+    var scale : CLLocationDistance = 4
+    
+    
     
     override func viewDidLoad() {
+//        super.viewWillAppear(true)
         super.viewDidLoad()
         
         self.view.addSubview(segmentControlView)
@@ -46,21 +54,16 @@ class ViewController: UIViewController {
         self.conteiner.snp.makeConstraints { make in
             make.edges.equalToSuperview().offset(0)
         }
-
-
-
-
-//
+        
+        dataCity = city
+        
         createMap()
-//        mapView.isHidden = true
         createSegmentControl()
 
         self.conteiner.addSubview(table)
         self.table.backgroundColor = .white
         self.table.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(-50)
-            make.bottom.equalToSuperview().offset(55)
-            make.left.right.equalToSuperview().offset(0)
+            make.edges.equalToSuperview().offset(0)
         }
         self.table.isHidden = true
 
@@ -68,11 +71,63 @@ class ViewController: UIViewController {
 
         let initialLocation = CLLocation(latitude: self.startPoint.latitude,
                                          longitude: self.startPoint.longitude)
-        mapView.centerToLocation(initialLocation, regionRadius: scale)
+        
+        // Center to Location -> Start Point
+        self.mapView.setRegion(MKCoordinateRegion(center: initialLocation.coordinate,
+                                                  span: MKCoordinateSpan(latitudeDelta: 4,
+                                                                         longitudeDelta: 4)),
+                               animated: true)
 
-        for i in dataCity {
-            mapView.addAnnotation(i)
+        cityAnnotation()
+        
+        
+    }
+    
+    
+    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        circleGradient()
+    }
+    
+    
+    
+    func circleGradient(){
+        
+        let circleGrad = UIView()
+        self.view.addSubview(circleGrad)
+//        circleGrad.backgroundColor = .black
+        circleGrad.snp.makeConstraints { make in
+            make.size.equalTo(50)
+            make.center.equalToSuperview()
         }
+        
+        
+        let gradient: CAGradientLayer = {
+            let gradient = CAGradientLayer()
+            gradient.type = .radial
+            gradient.colors = [
+                UIColor.purple.cgColor,
+                UIColor.blue.cgColor
+            ]
+            gradient.startPoint = CGPoint(x: 0.5, y: 0.5)
+//            let endY = 0.5 + circleGrad.frame.size.width / circleGrad.frame.size.height / 2
+            gradient.endPoint = CGPoint(x: 1, y: 1)
+            gradient.cornerRadius = 25
+            return gradient
+        }()
+        
+//
+        
+        
+        gradient.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        circleGrad.layer.addSublayer(gradient)
+        //circleGrad.layer.cornerRadius = 25
+        
+//        circleGrad.layer.addSublayer(gradient)
+//            circleGrad.layer.insertSublayer(gradient, at: 0)
         
     }
     
@@ -82,10 +137,9 @@ class ViewController: UIViewController {
         self.conteiner.addSubview(mapView)
         mapView.delegate = self
         self.mapView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(-50)
-            make.bottom.equalToSuperview().offset(55)
-            make.left.right.equalToSuperview().offset(0)
+            make.edges.equalToSuperview().offset(0)
         }
+        mapView.showsScale = true
         zoomButton()
         geolocationButton()
     }
@@ -110,11 +164,53 @@ class ViewController: UIViewController {
     @objc func segmentControlAction(_ sender: UISegmentedControl!){
         switch sender.selectedSegmentIndex{
             case 0:
-                mapView.isHidden = false
-                table.isHidden = true
+            cityAnnotation()
+            self.conteiner.sendSubviewToBack(self.table)
+            mapView.snp.remakeConstraints { make in
+                make.top.bottom.equalToSuperview()
+                make.right.equalTo(self.conteiner.snp.left)
+            }
+            
+            UIView.performWithoutAnimation {
+                self.conteiner.layoutIfNeeded()
+            }
+            
+            mapView.snp.remakeConstraints { make in
+                make.edges.equalToSuperview()
+            }
+            
+            UIView.animate(withDuration: 0.2) {
+                self.conteiner.layoutIfNeeded()
+            } completion: { _ in
+                
+                self.table.isHidden = true
+            }
+            
+            mapView.isHidden = false
+            
             case 1:
-                mapView.isHidden = true
-                table.isHidden = false
+            mapView.removeAnnotations(mapView.annotations)
+            self.conteiner.sendSubviewToBack(self.mapView)
+            table.snp.remakeConstraints { make in
+                make.top.bottom.equalToSuperview()
+                make.left.equalTo(self.conteiner.snp.right)
+            }
+            
+            UIView.performWithoutAnimation {
+                self.conteiner.layoutIfNeeded()
+            }
+            
+            table.snp.remakeConstraints { make in
+                make.edges.equalToSuperview()
+            }
+            
+            UIView.animate(withDuration: 0.2) {
+                self.conteiner.layoutIfNeeded()
+            } completion: { _ in
+                self.mapView.isHidden = true
+            }
+            
+            table.isHidden = false
             default:
                 break
         }
@@ -145,7 +241,7 @@ class ViewController: UIViewController {
         let plus1 = UIView()
         self.zoomPlus.addSubview(plus1)
         plus1.backgroundColor = .gray
-        
+        plus1.isUserInteractionEnabled = false
         plus1.snp.makeConstraints { make in
             make.height.equalTo(3)
             make.width.equalTo(15)
@@ -155,7 +251,7 @@ class ViewController: UIViewController {
         let plus2 = UIView()
         self.zoomPlus.addSubview(plus2)
         plus2.backgroundColor = .gray
-        
+        plus2.isUserInteractionEnabled = false
         plus2.snp.makeConstraints { make in
             make.height.equalTo(15)
             make.width.equalTo(3)
@@ -178,7 +274,7 @@ class ViewController: UIViewController {
         let minus = UIView()
         self.zoomMinus.addSubview(minus)
         minus.backgroundColor = .gray
-        
+        minus.isUserInteractionEnabled = false
         minus.snp.makeConstraints { make in
             make.height.equalTo(3)
             make.width.equalTo(15)
@@ -206,7 +302,7 @@ class ViewController: UIViewController {
         self.geolocationCircle.layer.cornerRadius = 45/2
         self.geolocationCircle.snp.makeConstraints { make in
             make.size.equalTo(45)
-            make.bottom.equalToSuperview().offset(-90)
+            make.bottom.equalToSuperview().offset(-70)
             make.right.equalToSuperview().offset(-15)
         }
         
@@ -228,6 +324,24 @@ class ViewController: UIViewController {
         mapView.addOverlay(circle)
     }
     
+    
+    
+    func cityAnnotation(){
+        for i in dataCity {
+            mapView.addAnnotation(i)
+        }
+    }
+    
+    
+    
+    func stateAnnotation(){
+        for i in dataCountry {
+            mapView.addAnnotation(i)
+        }
+    }
+    
+    
+    
     @objc func buttonAction(sender: UIButton!) {
         
         //        let centerPointCircle = CLLocationCoordinate2DMake(self.startPoint.latitude, self.startPoint.longitude)
@@ -244,7 +358,9 @@ class ViewController: UIViewController {
             region.span.latitudeDelta /= 2.0
             region.span.longitudeDelta /= 2.0
             mapView.setRegion(region, animated: true)
-            self.scale = self.scale / 2.0
+            if scale > 0.005{
+                self.scale = self.scale / 2.0
+            }
             print(self.scale)
             
         case 2:
@@ -252,7 +368,9 @@ class ViewController: UIViewController {
             region.span.latitudeDelta = min(region.span.latitudeDelta * 2.0, 180.0)
             region.span.longitudeDelta = min(region.span.longitudeDelta * 2.0, 180.0)
             mapView.setRegion(region, animated: true)
-            self.scale = self.scale * 2.0
+            if scale > 0.005{
+                self.scale = self.scale * 2.0
+            }
             print(self.scale)
             
         default:
@@ -263,16 +381,16 @@ class ViewController: UIViewController {
 }
 
 
-
-private extension MKMapView {
-    func centerToLocation(_ location: CLLocation, regionRadius: CLLocationDistance = 1000) {
-        let coordinateRegion = MKCoordinateRegion(
-            center: location.coordinate,
-            latitudinalMeters: regionRadius,
-            longitudinalMeters: regionRadius)
-        setRegion(coordinateRegion, animated: true)
-    }
-}
+//
+//private extension MKMapView {
+//    func centerToLocation(_ location: CLLocation, regionRadius: CLLocationDistance = 1000) {
+//        let coordinateRegion = MKCoordinateRegion(
+//            center: location.coordinate,
+//            latitudinalMeters: regionRadius,
+//            longitudinalMeters: regionRadius)
+//        setRegion(coordinateRegion, animated: true)
+//    }
+//}
 
 
 
@@ -287,5 +405,41 @@ extension ViewController: MKMapViewDelegate{
         }
         return MKOverlayRenderer()
     }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard !(annotation is MKUserLocation) else {
+            return nil
+        }
+        var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "custom")
+        
+        
+        if annotationView == nil {
+            //
+            annotationView = MKAnnotationView(annotation: annotation,
+                                              reuseIdentifier: "custom")
+            annotationView?.canShowCallout = true
+            
+        }
+        else {
+            annotationView?.annotation = annotation
+        }
+        
+        annotationView?.image = UIImage(named: "point")
+        annotationView?.snp.makeConstraints({ make in
+            make.size.equalTo(50)
+        })
+        
+        let statistic = UIView()
+        statistic.backgroundColor = .green
+        statistic.snp.makeConstraints { make in
+            make.height.equalTo(30)
+            make.width.equalTo(100)
+        }
+        annotationView?.detailCalloutAccessoryView = statistic
+        
+        return annotationView
+    }
+    
+    
 }
 
