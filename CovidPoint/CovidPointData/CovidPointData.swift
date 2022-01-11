@@ -4,7 +4,7 @@ import MapKit
 class CovidPointData: NSObject, MKAnnotation {
     let coordinate: CLLocationCoordinate2D
     let title: String?
-    let subtitle: Int?
+    let subtitle: String?
     
     let latitude: Double
     let longitude: Double
@@ -12,7 +12,7 @@ class CovidPointData: NSObject, MKAnnotation {
     init(title: String,
          latitude: Double,
          longitude: Double,
-         numberOfInfected: Int){
+         numberOfInfected: String){
         self.coordinate = CLLocationCoordinate2D(latitude: latitude,
                                                  longitude: longitude)
         self.latitude = latitude
