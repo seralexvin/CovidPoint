@@ -11,7 +11,6 @@ import SnapKit
 class CountryViewCell: UITableViewCell {
 
     lazy var containterView: UIView  = {
-//        let view = UIView(frame: .zero)
 //        view.translatesAutoresizingMaskIntoConstraints = false
         let view = UIView()
         view.frame = CGRect(x: 0, y: 0, width: 323, height: 198)
@@ -104,6 +103,21 @@ class CountryViewCell: UITableViewCell {
         line.backgroundColor = .white
         line.trackTintColor = .lightGray
         line.progressTintColor = .darkGray
+        
+        
+        let layer0 = CAGradientLayer()
+        layer0.colors = [
+          UIColor(red: 0.525, green: 0.525, blue: 0.525, alpha: 1).cgColor,
+          UIColor(red: 0.28, green: 0.293, blue: 0.3, alpha: 1).cgColor ]
+        layer0.locations = [0, 1]
+        layer0.startPoint = CGPoint(x: 0.25, y: 0.5)
+        layer0.endPoint = CGPoint(x: 0.75, y: 0.5)
+        layer0.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 0.54, b: 0, c: 0, d: 192.29, tx: -0.04, ty: -95.14))
+        layer0.bounds = line.bounds.insetBy(dx: -0.5*line.bounds.size.width, dy: -0.5*line.bounds.size.height)
+        layer0.position = line.center
+        line.layer.addSublayer(layer0)
+     
+        line.addShadow()
         
         self.containterView.addSubview(line)
         
