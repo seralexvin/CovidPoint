@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  CovidPoint
-//
-//  Created by Servin Asanov on 10.01.2022.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
