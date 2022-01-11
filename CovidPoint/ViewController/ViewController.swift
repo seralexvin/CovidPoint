@@ -31,6 +31,7 @@ class ViewController: UIViewController {
     let geolocationCircle = UIView()
     
     let table = UIView()
+    let myTableView = UITableView()
     
     let segmentControl = UISegmentedControl(items: ["Map", "Table"])
     
@@ -41,6 +42,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         //        super.viewWillAppear(true)
         super.viewDidLoad()
+        
+        
         
         self.view.addSubview(segmentControlView)
         self.segmentControlView.snp.makeConstraints { make in
@@ -63,7 +66,13 @@ class ViewController: UIViewController {
         }
         self.table.isHidden = true
         
-        
+        self.myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
+        self.myTableView.dataSource = self
+        self.myTableView.delegate = self
+        self.table.addSubview(myTableView)
+        self.myTableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().offset(0)
+        }
         
         let initialLocation = CLLocation(latitude: self.startPoint.latitude,
                                          longitude: self.startPoint.longitude)
@@ -147,7 +156,7 @@ class ViewController: UIViewController {
         case 0:
             
             self.conteiner.sendSubviewToBack(self.table)
-            mapView.snp.remakeConstraints { make in
+            self.mapView.snp.remakeConstraints { make in
                 make.top.bottom.equalToSuperview()
                 make.right.equalTo(self.conteiner.snp.left)
             }
@@ -156,7 +165,7 @@ class ViewController: UIViewController {
                 self.conteiner.layoutIfNeeded()
             }
             
-            mapView.snp.remakeConstraints { make in
+            self.mapView.snp.remakeConstraints { make in
                 make.edges.equalToSuperview()
             }
             
@@ -167,22 +176,19 @@ class ViewController: UIViewController {
                 self.table.isHidden = true
             }
             
-            mapView.isHidden = false
-            if (scale > 10){
+            self.mapView.isHidden = false
+            if (scale < 10){
                 self.mapView.removeAnnotations(self.mapView.annotations)
                 cityAnnotation()
             }
-            else if (scale < 10){
+            else if (scale > 10){
                 self.mapView.removeAnnotations(self.mapView.annotations)
                 countryAnnotation()
             }
-            let region: MKCoordinateRegion = mapView.region
-            mapView.setRegion(region, animated: false)
             
         case 1:
-            mapView.removeAnnotations(mapView.annotations)
             self.conteiner.sendSubviewToBack(self.mapView)
-            table.snp.remakeConstraints { make in
+            self.table.snp.remakeConstraints { make in
                 make.top.bottom.equalToSuperview()
                 make.left.equalTo(self.conteiner.snp.right)
             }
@@ -191,7 +197,7 @@ class ViewController: UIViewController {
                 self.conteiner.layoutIfNeeded()
             }
             
-            table.snp.remakeConstraints { make in
+            self.table.snp.remakeConstraints { make in
                 make.edges.equalToSuperview()
             }
             
@@ -200,10 +206,16 @@ class ViewController: UIViewController {
             } completion: { _ in
                 self.mapView.isHidden = true
             }
-            table.isHidden = false
+            self.table.isHidden = false
+            mapView.removeAnnotations(mapView.annotations)
+            
         default:
             break
         }
+        var region: MKCoordinateRegion = mapView.region
+        region.span.latitudeDelta += 0.00000001
+        region.span.longitudeDelta += 0.00000001
+        mapView.setRegion(region, animated: false)
     }
     
     
@@ -339,8 +351,8 @@ class ViewController: UIViewController {
                 self.mapView.removeAnnotations(self.mapView.annotations)
                 cityAnnotation()
             }
-            print(self.scale)
-            print(self.mapView.region)
+//            print(self.scale)
+//            print(self.mapView.region)
             
         case 2:
             var region: MKCoordinateRegion = mapView.region
@@ -352,7 +364,7 @@ class ViewController: UIViewController {
                 countryAnnotation()
             }
             
-            print(self.scale)
+//            print(self.scale)
             
             
         default:
@@ -423,11 +435,9 @@ extension ViewController: MKMapViewDelegate{
         let sizeSubtitle = (myText as NSString).size(withAttributes: fontAttributes)
         
         var sizeLable = sizeSubtitle
-        var sizeLableLow = sizeTitle
         
         if sizeTitle.width > sizeSubtitle.width {
             sizeLable = sizeTitle
-            sizeLableLow = sizeSubtitle
         }
         
         
@@ -474,19 +484,17 @@ extension ViewController: MKMapViewDelegate{
     
     
 }
-//
-//extension UIImage{
-//    convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)){
-//        let rect = CGRect(origin: .zero, size: size)
-//        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
-//        color.setFill()
-//        let circleRed = UIView()
-//        
-//        UIRectFill(rect)
-//        let image = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//        
-//        guard let cgImage = image?.cgImage else { return nil }
-//        self.init(cgImage: cgImage)
-//    }
-//}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataCountry.count;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath as IndexPath)
+        cell.textLabel!.text = dataCountry[indexPath.row].title
+        return cell
+    }
+    
+    
+}
