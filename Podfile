@@ -8,5 +8,4 @@ target 'CovidPoint' do
   # Pods for CovidPoint
 	pod 'SnapKit'
 
-
 end

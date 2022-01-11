@@ -1,21 +1,19 @@
 //
-//  File.swift
-//  CovidPoint
+//  Extension.swift
+//  c
 //
-//  Created by Servin Asanov on 28.12.2021.
+//  Created by Servin Asanov on 10.01.2022.
 //
 
+import Foundation
 import UIKit
 
-extension UIView {
-    func addShadow(color: UIColor) {
-        self.layer.shadowRadius = 20
+
+extension  UIView {
+    func addShadow() {
+        self.layer.shadowColor = UIColor(red: 0.658, green: 0.658, blue: 0.658, alpha: 0.24).cgColor
         self.layer.shadowOpacity = 1
-        self.layer.shadowColor = color.cgColor
-    }
-    
-    func cornerRadius(radius: CGFloat) {
-        self.layer.cornerRadius = radius
-        self.layer.masksToBounds = true
+        self.layer.shadowRadius = 9
+        self.layer.shadowOffset = CGSize(width: 0, height: 4.0)
     }
 }

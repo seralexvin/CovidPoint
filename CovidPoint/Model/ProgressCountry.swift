@@ -2,7 +2,7 @@
 //  ProgressCountry.swift
 //  CovidPoint
 //
-//  Created by Servin Asanov on 03.01.2022.
+//  Created by Servin Asanov on 10.01.2022.
 //
 
 import Foundation
