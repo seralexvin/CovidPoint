@@ -18,7 +18,7 @@
 		C62A49D2278CB4470016351D /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62A49D1278CB4470016351D /* Country.swift */; };
 		C62A49D4278CB4540016351D /* ProgressCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62A49D3278CB4540016351D /* ProgressCountry.swift */; };
 		C62A49D8278CB4880016351D /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62A49D6278CB4880016351D /* CountryListViewController.swift */; };
-		C62A49DD278CB4A80016351D /* countryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62A49DB278CB4A80016351D /* countryCell.swift */; };
+		C62A49DD278CB4A80016351D /* CellCountry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62A49DB278CB4A80016351D /* CellCountry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +36,7 @@
 		C62A49D1278CB4470016351D /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		C62A49D3278CB4540016351D /* ProgressCountry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCountry.swift; sourceTree = "<group>"; };
 		C62A49D6278CB4880016351D /* CountryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
-		C62A49DB278CB4A80016351D /* countryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = countryCell.swift; sourceTree = "<group>"; };
+		C62A49DB278CB4A80016351D /* CellCountry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellCountry.swift; sourceTree = "<group>"; };
 		C83C27A49949FEFFCF8E57AA /* Pods-CovidPoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidPoint.debug.xcconfig"; path = "Target Support Files/Pods-CovidPoint/Pods-CovidPoint.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,7 +141,7 @@
 		C62A49DA278CB4920016351D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				C62A49DB278CB4A80016351D /* countryCell.swift */,
+				C62A49DB278CB4A80016351D /* CellCountry.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -265,7 +265,7 @@
 				C62A49B7278CB18C0016351D /* SceneDelegate.swift in Sources */,
 				C62A49D4278CB4540016351D /* ProgressCountry.swift in Sources */,
 				C62A49CE278CB42A0016351D /* MapViewController.swift in Sources */,
-				C62A49DD278CB4A80016351D /* countryCell.swift in Sources */,
+				C62A49DD278CB4A80016351D /* CellCountry.swift in Sources */,
 				C62A49D2278CB4470016351D /* Country.swift in Sources */,
 				C62A49CA278CB20D0016351D /* Extension.swift in Sources */,
 				C62A49D8278CB4880016351D /* CountryListViewController.swift in Sources */,

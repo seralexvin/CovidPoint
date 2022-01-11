@@ -12,7 +12,7 @@ import SnapKit
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
    
-    var locationManager: CLLocationManager = CLLocationManager()
+    lazy var locationManager = CLLocationManager()
     lazy var mapView = MKMapView()
     lazy var segmentedC = UISegmentedControl(items: ["1", "2"])
     

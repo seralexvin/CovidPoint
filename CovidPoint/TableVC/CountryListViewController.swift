@@ -16,9 +16,9 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTableView()
         setupView()
         setupSegmentedControl()
-        setupTableView()
     }
     
     func setupView() {
@@ -65,12 +65,14 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func setupTableView() {
         let tableV = UITableView()
+        
+        tableV.register(CellCountry.self, forCellReuseIdentifier: "CountryCell")
         tableV.dataSource = self
         tableV.delegate = self
+        
         tableV.separatorStyle = .none
         tableV.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
         
-        tableV.register(CountryCell.self, forCellReuseIdentifier: "cell")
         view.addSubview(tableV)
         
         tableV.translatesAutoresizingMaskIntoConstraints = false
@@ -90,7 +92,7 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CountryCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCell", for: indexPath) as! CellCountry
         
         cell.countryName.text = model[indexPath.row].countryName
         cell.statusLabel.text = model[indexPath.row].statusLabel
