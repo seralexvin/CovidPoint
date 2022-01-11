@@ -15,10 +15,10 @@
 		C62A49BC278CB18C0016351D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C62A49BA278CB18C0016351D /* Main.storyboard */; };
 		C62A49BE278CB18E0016351D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C62A49BD278CB18E0016351D /* Assets.xcassets */; };
 		C62A49C1278CB18E0016351D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C62A49BF278CB18E0016351D /* LaunchScreen.storyboard */; };
-		C62A49CA278CB20D0016351D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62A49C9278CB20D0016351D /* Extension.swift */; };
 		C62A49CE278CB42A0016351D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62A49CC278CB42A0016351D /* MapViewController.swift */; };
 		C62A49D2278CB4470016351D /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62A49D1278CB4470016351D /* Country.swift */; };
 		C62A49DD278CB4A80016351D /* CountryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62A49DB278CB4A80016351D /* CountryViewCell.swift */; };
+		EBD90708278DB7CB00A4E79F /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD90707278DB7CB00A4E79F /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,11 +33,11 @@
 		C62A49BD278CB18E0016351D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C62A49C0278CB18E0016351D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C62A49C2278CB18E0016351D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C62A49C9278CB20D0016351D /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		C62A49CC278CB42A0016351D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C62A49D1278CB4470016351D /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		C62A49DB278CB4A80016351D /* CountryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewCell.swift; sourceTree = "<group>"; };
 		C83C27A49949FEFFCF8E57AA /* Pods-CovidPoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidPoint.debug.xcconfig"; path = "Target Support Files/Pods-CovidPoint/Pods-CovidPoint.debug.xcconfig"; sourceTree = "<group>"; };
+		EBD90707278DB7CB00A4E79F /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extension.swift; path = CovidPoint/Extensions/Extension.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +108,7 @@
 		C62A49C8278CB2050016351D /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				C62A49C9278CB20D0016351D /* Extension.swift */,
+				EBD90707278DB7CB00A4E79F /* Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -264,11 +264,11 @@
 			files = (
 				C62A49B5278CB18C0016351D /* AppDelegate.swift in Sources */,
 				C62A49B7278CB18C0016351D /* SceneDelegate.swift in Sources */,
+				EBD90708278DB7CB00A4E79F /* Extension.swift in Sources */,
 				C62A49CE278CB42A0016351D /* MapViewController.swift in Sources */,
 				C62A49DD278CB4A80016351D /* CountryViewCell.swift in Sources */,
 				C623F8FD278D80EF00AC8807 /* CountryList.swift in Sources */,
 				C62A49D2278CB4470016351D /* Country.swift in Sources */,
-				C62A49CA278CB20D0016351D /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,7 +345,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -400,7 +400,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.7;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
