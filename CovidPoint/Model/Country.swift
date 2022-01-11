@@ -16,6 +16,7 @@ struct Country {
     var infected: String
     var countPeople: String
     var infectedProgress: Double
+    
 
     
     static func getCity() -> [Country] {

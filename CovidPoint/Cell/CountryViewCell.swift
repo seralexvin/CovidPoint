@@ -2,7 +2,7 @@
 //  TableViewCell.swift
 //  CovidPoint
 //
-//  Created by Servin Asanov on 28.12.2021.
+//  Created by Servin Asanov on 10.01.2022.
 //
 
 import UIKit
@@ -15,10 +15,12 @@ class CountryViewCell: UITableViewCell {
 //        view.translatesAutoresizingMaskIntoConstraints = false
         let view = UIView()
         view.frame = CGRect(x: 0, y: 0, width: 323, height: 198)
-        self.contentView.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
+        self.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
         view.backgroundColor = .white
-        view.addShadow(color: .darkGray)
-        view.cornerRadius(radius: 20)
+        view.layer.cornerRadius = 20
+        
+        view.addShadow()
+        
         self.contentView.addSubview(view)
         
         view.snp.makeConstraints { make in
@@ -100,7 +102,6 @@ class CountryViewCell: UITableViewCell {
     lazy var progressView: UIProgressView = {
         let line = UIProgressView()
         line.backgroundColor = .white
-        line.cornerRadius(radius: 1)
         line.trackTintColor = .lightGray
         line.progressTintColor = .darkGray
         

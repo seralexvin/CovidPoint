@@ -11,14 +11,13 @@ import SnapKit
 class CountryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var model = Country.getCity()
-    var progressModel = ProgressCountry.myProgress()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupTableView()
         setupView()
         setupSegmentedControl()
+        setupTableView()
     }
     
     func setupView() {
@@ -65,14 +64,12 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func setupTableView() {
         let tableV = UITableView()
-        
-        tableV.register(CellCountry.self, forCellReuseIdentifier: "CountryCell")
         tableV.dataSource = self
         tableV.delegate = self
-        
         tableV.separatorStyle = .none
         tableV.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
         
+        tableV.register(CountryViewCell.self, forCellReuseIdentifier: "countryCell")
         view.addSubview(tableV)
         
         tableV.translatesAutoresizingMaskIntoConstraints = false
@@ -92,13 +89,14 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CountryCell", for: indexPath) as! CellCountry
+        let cell = tableView.dequeueReusableCell(withIdentifier: "countryCell", for: indexPath) as! CountryViewCell
         
         cell.countryName.text = model[indexPath.row].countryName
         cell.statusLabel.text = model[indexPath.row].statusLabel
         cell.countryImage.image = UIImage(named: model[indexPath.row].countryImage)
-        cell.infectedPeople.text = model[indexPath.row].infected
         cell.newInfected.text = model[indexPath.row].countPeople
+        cell.infectedPeople.text = model[indexPath.row].infected
+
         
         cell.progressView.setProgress(Float(model[indexPath.row].infectedProgress), animated: false)
         

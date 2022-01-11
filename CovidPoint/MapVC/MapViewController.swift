@@ -12,7 +12,7 @@ import SnapKit
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
    
-    lazy var locationManager = CLLocationManager()
+    var locationManager: CLLocationManager = CLLocationManager()
     lazy var mapView = MKMapView()
     lazy var segmentedC = UISegmentedControl(items: ["1", "2"])
     
@@ -22,6 +22,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         setupMapView()
         setupPin()
         setupSegmentedControl()
+        
     }
 
     func setupMapView() {
@@ -43,6 +44,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         let pin1 = MKPointAnnotation()
         pin1.coordinate = CLLocationCoordinate2D(latitude: 44.9571900, longitude: 34.1107900)
         pin1.title = "You"
+        pin1.subtitle = "there"
         
         let pin2 = MKPointAnnotation()
         pin2.coordinate = CLLocationCoordinate2D(latitude: 44.9571900, longitude: 34.10)
@@ -53,6 +55,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         pin3.title = "10 000"
 
         self.mapView.addAnnotations([pin1, pin2, pin3])
+
     }
     
     func setupSegmentedControl() {
