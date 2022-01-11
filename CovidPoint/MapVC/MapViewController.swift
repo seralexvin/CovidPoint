@@ -16,8 +16,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     lazy var mapView = MKMapView()
     lazy var segmentedC = UISegmentedControl(items: ["1", "2"])
     
+    let annotationIdentifier = "mkAnnotation"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mapView.delegate = self
+        mapViewSetup()
 
         setupMapView()
         setupPin()
@@ -32,6 +37,22 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             make.right.equalTo(self.view.snp.right)
             make.bottom.equalTo(self.view.snp.bottom)
         }
+    }
+    
+    func mapViewSetup() {
+        
+        func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+            guard !(annotation is MKUserLocation) else { return nil }
+            
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
+            if annotationView == nil {
+                annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+                annotationView?.canShowCallout = true
+            }
+            
+            return annotationView
+        }
+
     }
 
     func setupPin() {
