@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		41005B08B84D115F35A0162A /* Pods_CovidPoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92345117BE70363F66799678 /* Pods_CovidPoint.framework */; };
+		C623F8FD278D80EF00AC8807 /* CountryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C623F8FB278D80EF00AC8807 /* CountryList.swift */; };
+		C623F8FE278D80EF00AC8807 /* CountryList.xib in Resources */ = {isa = PBXBuildFile; fileRef = C623F8FC278D80EF00AC8807 /* CountryList.xib */; };
 		C62A49B5278CB18C0016351D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62A49B4278CB18C0016351D /* AppDelegate.swift */; };
 		C62A49B7278CB18C0016351D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62A49B6278CB18C0016351D /* SceneDelegate.swift */; };
 		C62A49BC278CB18C0016351D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C62A49BA278CB18C0016351D /* Main.storyboard */; };
@@ -16,13 +18,14 @@
 		C62A49CA278CB20D0016351D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62A49C9278CB20D0016351D /* Extension.swift */; };
 		C62A49CE278CB42A0016351D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62A49CC278CB42A0016351D /* MapViewController.swift */; };
 		C62A49D2278CB4470016351D /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62A49D1278CB4470016351D /* Country.swift */; };
-		C62A49D8278CB4880016351D /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62A49D6278CB4880016351D /* CountryListViewController.swift */; };
 		C62A49DD278CB4A80016351D /* CountryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62A49DB278CB4A80016351D /* CountryViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		734F80E08189BC0E9C088795 /* Pods-CovidPoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidPoint.release.xcconfig"; path = "Target Support Files/Pods-CovidPoint/Pods-CovidPoint.release.xcconfig"; sourceTree = "<group>"; };
 		92345117BE70363F66799678 /* Pods_CovidPoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidPoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C623F8FB278D80EF00AC8807 /* CountryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryList.swift; sourceTree = "<group>"; };
+		C623F8FC278D80EF00AC8807 /* CountryList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountryList.xib; sourceTree = "<group>"; };
 		C62A49B1278CB18C0016351D /* CovidPoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CovidPoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C62A49B4278CB18C0016351D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C62A49B6278CB18C0016351D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,7 +36,6 @@
 		C62A49C9278CB20D0016351D /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		C62A49CC278CB42A0016351D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C62A49D1278CB4470016351D /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
-		C62A49D6278CB4880016351D /* CountryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
 		C62A49DB278CB4A80016351D /* CountryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewCell.swift; sourceTree = "<group>"; };
 		C83C27A49949FEFFCF8E57AA /* Pods-CovidPoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidPoint.debug.xcconfig"; path = "Target Support Files/Pods-CovidPoint/Pods-CovidPoint.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,7 +132,8 @@
 		C62A49D5278CB4670016351D /* TableVC */ = {
 			isa = PBXGroup;
 			children = (
-				C62A49D6278CB4880016351D /* CountryListViewController.swift */,
+				C623F8FB278D80EF00AC8807 /* CountryList.swift */,
+				C623F8FC278D80EF00AC8807 /* CountryList.xib */,
 			);
 			path = TableVC;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C623F8FE278D80EF00AC8807 /* CountryList.xib in Resources */,
 				C62A49C1278CB18E0016351D /* LaunchScreen.storyboard in Resources */,
 				C62A49BE278CB18E0016351D /* Assets.xcassets in Resources */,
 				C62A49BC278CB18C0016351D /* Main.storyboard in Resources */,
@@ -262,9 +266,9 @@
 				C62A49B7278CB18C0016351D /* SceneDelegate.swift in Sources */,
 				C62A49CE278CB42A0016351D /* MapViewController.swift in Sources */,
 				C62A49DD278CB4A80016351D /* CountryViewCell.swift in Sources */,
+				C623F8FD278D80EF00AC8807 /* CountryList.swift in Sources */,
 				C62A49D2278CB4470016351D /* Country.swift in Sources */,
 				C62A49CA278CB20D0016351D /* Extension.swift in Sources */,
-				C62A49D8278CB4880016351D /* CountryListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

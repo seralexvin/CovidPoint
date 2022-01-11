@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  c
+//  CovidPoint
 //
 //  Created by Servin Asanov on 10.01.2022.
 //
@@ -8,16 +8,17 @@
 import UIKit
 import SnapKit
 
-class CountryListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CountryList: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let idCell = "countryCell"
     var model = Country.getCity()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTableView()
         setupView()
         setupSegmentedControl()
-        setupTableView()
     }
     
     func setupView() {
@@ -53,10 +54,10 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
             mapVC.modalPresentationStyle = .fullScreen
             present(mapVC, animated: false, completion: nil)
         case 1:
-            let vc = CountryListViewController()
+            let countryList = CountryList()
             
-            vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: false, completion: nil)
+            countryList.modalPresentationStyle = .fullScreen
+            present(countryList, animated: false, completion: nil)
         default:
             print("error")
         }
@@ -68,9 +69,9 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
         tableV.delegate = self
         tableV.separatorStyle = .none
         tableV.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
-        
-        tableV.register(CountryViewCell.self, forCellReuseIdentifier: "countryCell")
         view.addSubview(tableV)
+        
+        tableV.register(CountryViewCell.self, forCellReuseIdentifier: self.idCell)
         
         tableV.translatesAutoresizingMaskIntoConstraints = false
         
@@ -88,8 +89,7 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "countryCell", for: indexPath) as! CountryViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.idCell, for: indexPath) as! CountryViewCell
         
         cell.countryName.text = model[indexPath.row].countryName
         cell.statusLabel.text = model[indexPath.row].statusLabel
@@ -97,7 +97,6 @@ class CountryListViewController: UIViewController, UITableViewDelegate, UITableV
         cell.newInfected.text = model[indexPath.row].countPeople
         cell.infectedPeople.text = model[indexPath.row].infected
 
-        
         cell.progressView.setProgress(Float(model[indexPath.row].infectedProgress), animated: false)
         
         return cell
