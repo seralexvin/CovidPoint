@@ -1,3 +1,10 @@
+//
+//  CovidModel.swift
+//  CovidPoint
+//
+//  Created by Servin Asanov on 10.01.2022.
+//
+
 import Foundation
 import UIKit
 

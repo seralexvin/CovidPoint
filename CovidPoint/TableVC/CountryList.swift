@@ -40,7 +40,7 @@ class CountryList: UIViewController, UITableViewDelegate, UITableViewDataSource 
             make.height.equalTo(38)
             make.left.equalTo(self.view.snp.left).offset(88)
             make.right.equalTo(self.view.snp.right).offset(-87)
-            make.top.equalTo(self.view.snp.topMargin).offset(38)
+            make.top.equalTo(self.view.snp.top).offset(66)
         }
         
         segmentedC.addTarget(self, action: #selector(mapVCChange(_:)), for: .valueChanged)
@@ -49,7 +49,7 @@ class CountryList: UIViewController, UITableViewDelegate, UITableViewDataSource 
     @objc func mapVCChange(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            let mapVC = MapViewController()
+            let mapVC = ViewController()
             
             mapVC.modalPresentationStyle = .fullScreen
             present(mapVC, animated: false, completion: nil)

@@ -43,7 +43,10 @@ class ViewController: UIViewController {
         //        super.viewWillAppear(true)
         super.viewDidLoad()
         
-        
+        /// Setup segmentedControl
+        segmentControl.setImage(UIImage(named: "1"), forSegmentAt: 0)
+        segmentControl.setImage(UIImage(named: "2"), forSegmentAt: 1)
+        ///
         
         self.view.addSubview(segmentControlView)
         self.segmentControlView.snp.makeConstraints { make in
@@ -138,13 +141,15 @@ class ViewController: UIViewController {
     
     
     func createSegmentControl(){
-        self.segmentControlView.addSubview(segmentControl)
+        self.view.addSubview(segmentControl)
         self.segmentControl.backgroundColor = .white
         self.segmentControl.snp.makeConstraints { make in
             make.height.equalTo(38)
             make.width.equalTo(200)
-            make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(65)
+//            make.centerX.equalToSuperview()
+            make.left.equalToSuperview().offset(88)
+            make.right.equalToSuperview().offset(-87)
+            make.top.equalToSuperview().offset(66)
         }
         self.segmentControl.selectedSegmentIndex = 0
         self.segmentControl.addTarget(self, action: #selector(segmentControlAction(_:)), for: .valueChanged)
@@ -187,6 +192,13 @@ class ViewController: UIViewController {
             }
             
         case 1:
+            
+            let countryList = CountryList()
+
+            countryList.modalPresentationStyle = .fullScreen
+            present(countryList, animated: false, completion: nil)
+            
+            /*
             self.conteiner.sendSubviewToBack(self.mapView)
             self.table.snp.remakeConstraints { make in
                 make.top.bottom.equalToSuperview()
@@ -208,7 +220,7 @@ class ViewController: UIViewController {
             }
             self.table.isHidden = false
             mapView.removeAnnotations(mapView.annotations)
-            
+            */
         default:
             break
         }

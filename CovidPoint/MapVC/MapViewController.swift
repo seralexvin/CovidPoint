@@ -91,7 +91,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             make.height.equalTo(38)
             make.left.equalTo(self.mapView.snp.left).offset(88)
             make.right.equalTo(self.mapView.snp.right).offset(-87)
-            make.top.equalTo(self.mapView.snp.topMargin).offset(38)
+            make.top.equalTo(self.view.snp.top).offset(66)
         }
         
         segmentedC.addTarget(self, action: #selector(mapVCChange(_:)), for: .valueChanged)

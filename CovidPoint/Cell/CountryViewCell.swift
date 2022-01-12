@@ -1,3 +1,10 @@
+//
+//  TableViewCell.swift
+//  CovidPoint
+//
+//  Created by Servin Asanov on 10.01.2022.
+//
+
 import UIKit
 import SnapKit
 
@@ -11,6 +18,7 @@ class CountryViewCell: UITableViewCell {
         view.backgroundColor = .white
         view.layer.cornerRadius = 20
         
+        view.addShadow()
         
         self.contentView.addSubview(view)
         
@@ -109,6 +117,7 @@ class CountryViewCell: UITableViewCell {
         layer0.position = line.center
         line.layer.addSublayer(layer0)
      
+        line.addShadow()
         
         self.containterView.addSubview(line)
         
